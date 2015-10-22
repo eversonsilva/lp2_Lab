@@ -5,9 +5,6 @@
  */
 package projetotestebd;
 
-import com.br.lp2.model.InfoUsuario;
-import com.br.lp2.model.dao.InfoUsuarioDAO;
-
 import com.br.lp2.model.Usuario;
 import com.br.lp2.model.dao.UsuarioDAO;
 import java.util.List;
