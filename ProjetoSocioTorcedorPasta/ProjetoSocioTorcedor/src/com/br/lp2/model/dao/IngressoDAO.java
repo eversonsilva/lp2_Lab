@@ -5,13 +5,13 @@
  */
 package com.br.lp2.model.dao;
 
+import com.br.lp2.model.DateUtil;
 import com.br.lp2.model.Ingresso;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,18 +33,15 @@ public class IngressoDAO implements GenericDAO<Ingresso>{
         
         con = ConnectionFactory.getConnection();
         
-        String sql = "INSERT INTO ingresso(numeroIngresso, valorIngresso, data, hora, nomeCampeonato) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO ingresso(numeroIngresso, valorIngresso, dia, nomeCampeonato) VALUES (?,?,?,?)";
         
         try{
-            
-        Ingresso i = new Ingresso();    
+               
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, ingresso.getNumeroIngresso());
         ps.setDouble(2, ingresso.getValorIngresso());
-        ps.setDate(3, ingresso.getData());
-        ps.setTime(4, ingresso.getHora());
-        ps.setString(5, ingresso.getNomeCampeonato());
-        
+        ps.setDate(3, new java.sql.Date(ingresso.getData().getTime()));
+        ps.setString(4, ingresso.getNomeCampeonato());       
         
         int resp = ps.executeUpdate();
         
@@ -82,10 +79,9 @@ public class IngressoDAO implements GenericDAO<Ingresso>{
                 int id = rs.getInt("id_ingresso");
                 int numeroIngresso = rs.getInt("numeroIngresso");
                 double valorIngresso = rs.getDouble("valorIngresso");
-                Date data = (Date) rs.getDate("data");
-                Time hora = (Time) rs.getTime("hora");
+                Date data = rs.getDate("dia");
                 String nomeCampeonato = rs.getString("nomeCampeonato");
-                Ingresso i = new Ingresso(id, numeroIngresso, valorIngresso, data, hora, nomeCampeonato);
+                Ingresso i = new Ingresso(id, numeroIngresso, valorIngresso, data, nomeCampeonato);
                 ingressos.add(i);
             }
             
@@ -108,15 +104,14 @@ public class IngressoDAO implements GenericDAO<Ingresso>{
         
         con = ConnectionFactory.getConnection();
         
-        String sql = "UPDATE ingresso SET numeroIngresso = ?, valorIngresso = ?, data = ?, hora = ?, nomeCampeonato = ? WHERE id_ingresso = ?";
+        String sql = "UPDATE ingresso SET numeroIngresso = ?, valorIngresso = ?, dia = ?, nomeCampeonato = ? WHERE id_ingresso = ?";
         
         try{
             
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, ingresso.getNumeroIngresso());
             ps.setDouble(2, ingresso.getValorIngresso());
-            ps.setDate(3, ingresso.getData());
-            ps.setTime(4, ingresso.getHora());
+            ps.setDate(3, new java.sql.Date(ingresso.getData().getTime()));
             ps.setString(5, ingresso.getNomeCampeonato());
             ps.setInt(6, ingresso.getId_ingresso());
             

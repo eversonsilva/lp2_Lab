@@ -6,6 +6,7 @@
 package projetosociotorcedor;
 
 import com.br.lp2.model.Assento;
+import com.br.lp2.model.DateUtil;
 import com.br.lp2.model.Usuario;
 import com.br.lp2.model.Jogo;
 import com.br.lp2.model.Estadio;
@@ -102,9 +103,9 @@ public class ProjetoSocioTorcedor {
         //jogoDAO.insert(j1);
 
         //ATUALIZA JOGO
-        Jogo j2 = lista1.get(lista1.size() - 1);
-        j2.setTime1("COR");
-        j2.setTime2("Santos");
+        //Jogo j2 = lista1.get(lista1.size() - 1);
+        //j2.setTime1("COR");
+        //j2.setTime2("Santos");
         //jogoDAO.update(j2);
 
         //REMOVE JOGO
@@ -128,10 +129,9 @@ public class ProjetoSocioTorcedor {
         Ingresso i1 = new Ingresso();
         i1.setNumeroIngresso(1);
         i1.setValorIngresso(10.00);
-        //i1.setData(10/14/2015);
-        //i1.setHora(00:42);
-        i1.setNomeCampeonato("Campeonato Brasileiro");
-        //ingressoDAO.insert(i1);
+        i1.setData(DateUtil.string2date("19/01/1996 15:55:05"));
+        i1.setNomeCampeonato("Cam Brasil");
+        ingressoDAO.insert(i1);
 
         //ATUALIZA INGRESSO
       //  Ingresso i2 = lista2.get(lista2.size() - 1);

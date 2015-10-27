@@ -6,10 +6,8 @@
 package com.br.lp2.model;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 /**
 
@@ -20,35 +18,32 @@ public class Ingresso implements Serializable{
     private int id_ingresso, numeroIngresso;
     private double valorIngresso;
     private Date dia;
-    private Time hora;
     private String nomeCampeonato;
     
     //-----------------------------------CONSTRUTORES---------------------------------------------
     
     public Ingresso() {
+        
         this.id_ingresso = -1;
         this.numeroIngresso = -1;
         this.valorIngresso = 00.00;
-        this.dia = Date.valueOf(LocalDate.MIN);
-        this.hora = Time.valueOf(LocalTime.MIN);
+        this.dia = new Date();
         this.nomeCampeonato = "Campeonato";
     }
 
-    public Ingresso(int numeroIngresso, double valorIngresso, Date dia, Time hora, String nomeCampeonato) {
+    public Ingresso(int numeroIngresso, double valorIngresso, Date dia, String nomeCampeonato) {
         this.id_ingresso = -1;
         this.numeroIngresso = numeroIngresso;
         this.valorIngresso = valorIngresso;
         this.dia = dia;
-        this.hora =hora;
         this.nomeCampeonato = nomeCampeonato;
     }
 
-    public Ingresso(int id_ingresso, int numeroIngresso, double valorIngresso, Date dia, Time hora, String nomeCampeonato) {
+    public Ingresso(int id_ingresso, int numeroIngresso, double valorIngresso, Date dia, String nomeCampeonato) {
         this.id_ingresso = id_ingresso;
         this.numeroIngresso = numeroIngresso;
         this.valorIngresso = valorIngresso;
         this.dia = dia;
-        this.hora =hora;
         this.nomeCampeonato = nomeCampeonato;
     }
     
@@ -86,14 +81,6 @@ public class Ingresso implements Serializable{
         this.dia = dia;
     }
 
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
-
     public String getNomeCampeonato() {
         return nomeCampeonato;
     }
@@ -106,7 +93,7 @@ public class Ingresso implements Serializable{
 
     @Override
     public String toString() {
-        return "Ingresso{" + "id_ingresso=" + id_ingresso + ", numeroIngresso=" + numeroIngresso + ", valorIngresso=" + valorIngresso + ", dia=" + dia + ", hora=" + hora + ", nomeCampeonato=" + nomeCampeonato + '}';
+        return "Ingresso{" + "id_ingresso=" + id_ingresso + ", numeroIngresso=" + numeroIngresso + ", valorIngresso=" + valorIngresso + ", dia=" + dia + ", nomeCampeonato=" + nomeCampeonato + '}';
     }
 
     
