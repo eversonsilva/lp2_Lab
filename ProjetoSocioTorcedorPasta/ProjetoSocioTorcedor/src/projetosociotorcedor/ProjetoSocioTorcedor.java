@@ -85,7 +85,7 @@ public class ProjetoSocioTorcedor {
         //REMOVE USARIO ESPECIFICO
         Usuario u4 = new Usuario();
         for (Usuario usuario : lista) {
-            if (usuario.getUsername().equals("Dilma")) {
+            if (usuario.getUsername().equals("Carlos")) {
                 u4 = usuario;
                 break;
             }
@@ -97,7 +97,7 @@ public class ProjetoSocioTorcedor {
         //JOGODAO
         
         Jogo j1 = new Jogo();
-        j1.setId_Estadio(8);
+        j1.setId_Estadio(5);
         j1.setTime1("Palmeiras");
         j1.setTime2("São Paulo");
         //jogoDAO.insert(j1);
@@ -113,14 +113,12 @@ public class ProjetoSocioTorcedor {
         //jogoDAO.delete(j3);
 
         //REMOVE JOGO ESPECIFICO
-        Jogo j4 = new Jogo();
-        for (Jogo jogo : lista1) {
-            if (jogo.getTime1().equals("Palmeiras") || jogo.getTime2().equals("Palmeiras")) {
-                j4 = jogo;
+        for (int i = 0; i < lista1.size(); i++) {
+            if (lista1.get(i).getTime1().equals("Palmeiras") || lista1.get(i).getTime2().equals("Palmeiras")) {
+                //jogoDAO.delete(lista1.get(i));
                 break;
             }
         }
-        //jogoDAO.delete(j4);
 
         //========================================================================
         
@@ -131,10 +129,10 @@ public class ProjetoSocioTorcedor {
         i1.setValorIngresso(10.00);
         i1.setData(DateUtil.string2date("19/01/1996 15:55:05"));
         i1.setNomeCampeonato("Cam Brasil");
-        ingressoDAO.insert(i1);
+        //ingressoDAO.insert(i1);
 
         //ATUALIZA INGRESSO
-      //  Ingresso i2 = lista2.get(lista2.size() - 1);
+        //Ingresso i2 = lista2.get(lista2.size() - 1);
         //ingressoDAO.update(i2);
 
         //REMOVE INGRESSO
@@ -142,13 +140,12 @@ public class ProjetoSocioTorcedor {
         //ingressoDAO.delete(i3);
 
         //REMOVE INGRESSO ESPECIFICO
-        Ingresso i4 = new Ingresso();
-        for (Ingresso ingresso : lista2) {
-            //if ()) {
-                //i4 = jogo;
+        for (int i = 0; i < lista2.size(); i++) {
+            if (lista2.get(i).getNumeroIngresso() == 1) {
+                //ingressoDAO.delete(lista2.get(i));
                 break;
             }
-        //ingressoDAO.delete(i4);
+        }
 
         //========================================================================
         
@@ -198,14 +195,12 @@ public class ProjetoSocioTorcedor {
         //assentoDAO.delete(a3);
 
         //REMOVE ASSENTO ESPECIFICO
-        Assento a4 = new Assento();
-        for (Assento assento : lista4) {
-            if (assento.getNumeroAssento() == 53 && assento.getSetorAssento().equals("Amarelo")) {
-                a4 = assento;
+        for (int i = 0; i < lista4.size(); i++) {
+            if (lista4.get(i).getNumeroAssento() == 53 && lista4.get(i).getSetorAssento().equals("Amarelo")) {
+                //assentoDAO.delete(lista4.get(i));
                 break;
             }
         }
-        //assentoDAO.delete(a4);
 
         //========================================================================
         
