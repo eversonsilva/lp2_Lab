@@ -126,7 +126,7 @@ public class ProjetoSocioTorcedor {
         
         Ingresso i1 = new Ingresso();
         i1.setNumeroIngresso(1);
-        i1.setValorIngresso(10.00);
+        i1.setValorIngresso(10.15);
         i1.setData(DateUtil.string2date("19/01/1996 15:55:05"));
         i1.setNomeCampeonato("Cam Brasil");
         //ingressoDAO.insert(i1);
