@@ -6,6 +6,8 @@
 package com.br.lp2.model;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *
@@ -13,12 +15,21 @@ import java.text.DecimalFormat;
  */
 public class ValorUtil {
   
-    private static DecimalFormat df = new DecimalFormat("#.##");
+    /*private static DecimalFormat df = new DecimalFormat("#.##");
     
     public static String double2String(double valor){
          
         String dx = df.format(valor); 
         
         return dx;
-    }
+    }*/
+    
+    private static Locale lBrasil = new Locale ("pt", "BR");
+    
+    public static String formatarNumero(double valor, int casas) {
+        NumberFormat formato = NumberFormat.getNumberInstance(lBrasil);
+        formato.setMinimumFractionDigits(casas);
+    return formato.format(valor);
+}
+    
 }

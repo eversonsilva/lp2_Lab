@@ -93,7 +93,7 @@ public class Ingresso implements Serializable{
 
     @Override
     public String toString() {
-        return "Ingresso{" + "id_ingresso=" + id_ingresso + ", numeroIngresso=" + numeroIngresso + ", valorIngresso=" + ValorUtil.double2String(valorIngresso) + ", dia=" + DateUtil.date2string(dia) + ", nomeCampeonato=" + nomeCampeonato + '}';
+        return "Ingresso{" + "id_ingresso=" + id_ingresso + ", numeroIngresso=" + numeroIngresso + ", valorIngresso=" + ValorUtil.formatarNumero(valorIngresso,2) + ", dia=" + DateUtil.date2string(dia) + ", nomeCampeonato=" + nomeCampeonato + '}';
     }
 
     

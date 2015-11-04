@@ -112,8 +112,8 @@ public class IngressoDAO implements GenericDAO<Ingresso>{
             ps.setInt(1, ingresso.getNumeroIngresso());
             ps.setDouble(2, ingresso.getValorIngresso());
             ps.setDate(3, new java.sql.Date(ingresso.getData().getTime()));
-            ps.setString(5, ingresso.getNomeCampeonato());
-            ps.setInt(6, ingresso.getId_ingresso());
+            ps.setString(4, ingresso.getNomeCampeonato());
+            ps.setInt(5, ingresso.getId_ingresso());
             
            int resp = ps.executeUpdate();
            

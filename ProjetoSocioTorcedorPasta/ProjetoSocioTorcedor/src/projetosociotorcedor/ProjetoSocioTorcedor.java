@@ -133,6 +133,10 @@ public class ProjetoSocioTorcedor {
 
         //ATUALIZA INGRESSO
         //Ingresso i2 = lista2.get(lista2.size() - 1);
+        //i2.setData(DateUtil.string2date("19/01/1996 2:04:10"));
+        //i2.setNomeCampeonato("Brasileirao");
+        //i2.setNumeroIngresso(2);
+        //i2.setValorIngresso(10.00);
         //ingressoDAO.update(i2);
 
         //REMOVE INGRESSO
